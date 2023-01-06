@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "555735212656",
+    "project_id": "flutter-keep-56b29",
+    "storage_bucket": "flutter-keep-56b29.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:555735212656:android:b23c528e6cff679ee6cab5",
+        "android_client_info": {
+          "package_name": "dev.flutter_keep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "555735212656-5qbvpa8r6f0cidlf5o2frv6crln7vtfg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd5j17SphyHoBr7_sp4Qgu6eP3HYPMfow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "555735212656-5qbvpa8r6f0cidlf5o2frv6crln7vtfg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

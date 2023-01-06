@@ -7,6 +7,9 @@ GetIt locator = GetIt.instance;
 
 Future<void> setupLocator() async {
   locator
+    ..registerLazySingleton<LocalDataSource>(
+      LocalDataSourceImpl.new,
+    )
     ..registerLazySingleton<ThemeCubit>(
       ThemeCubit.new,
     )
@@ -23,6 +26,8 @@ Future<void> setupLocator() async {
       NotesRepositoryImpl.new,
     )
     ..registerLazySingleton<NotesCubit>(
-      () => NotesCubit(notesRepository: locator()),
+      () => NotesCubit(
+        notesRepository: locator(),
+      ),
     );
 }
