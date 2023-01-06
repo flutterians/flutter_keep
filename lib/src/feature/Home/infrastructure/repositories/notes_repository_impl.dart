@@ -1,12 +1,11 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
-import 'package:flutter/services.dart';
+
 import 'package:flutter_keep/src/core/errors/failure.dart';
 import 'package:flutter_keep/src/feature/Home/infrastructure/models/note_model.dart';
 import 'package:flutter_keep/src/feature/Home/infrastructure/repositories/notes_repository.dart';
 
 class NotesRepositoryImpl implements NotesRepository {
+  const NotesRepositoryImpl();
   @override
   Future<Either<List<NoteModel>, Failure>> fetchNotes() async {
     try {

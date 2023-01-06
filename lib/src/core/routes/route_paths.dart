@@ -10,4 +10,6 @@ class RoutePaths {
       AppRouteModel(routeName: 'signupPage', path: '/signup');
   static final AppRouteModel homeRoute =
       AppRouteModel(routeName: 'homePage', path: '/home');
+  static final AppRouteModel addNoteRoute =
+      AppRouteModel(routeName: 'addNote', path: '/addNote');
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_keep/src/core/core.dart';
+import 'package:go_router/go_router.dart';
 
 class FabWidget extends StatelessWidget {
   const FabWidget({super.key});
@@ -12,7 +14,7 @@ class FabWidget extends StatelessWidget {
         Icons.add,
         size: 30,
       ),
-      onPressed: () async {},
+      onPressed: () => context.push(RoutePaths.addNoteRoute.path),
     );
   }
 }

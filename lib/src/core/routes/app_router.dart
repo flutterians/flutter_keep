@@ -35,6 +35,14 @@ class AppRouter {
           child: const HomeScreen(),
         ),
       ),
+      GoRoute(
+        path: RoutePaths.addNoteRoute.path,
+        name: RoutePaths.addNoteRoute.routeName,
+        pageBuilder: (context, state) => FadeTransitionPage(
+          key: state.pageKey,
+          child: const AddNoteScreen(),
+        ),
+      ),
     ],
     redirect: (BuildContext context, GoRouterState state) {
       return null;
