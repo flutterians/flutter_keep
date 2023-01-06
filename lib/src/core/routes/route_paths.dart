@@ -8,6 +8,6 @@ class RoutePaths {
       AppRouteModel(routeName: 'loginPage', path: '/login');
   static final AppRouteModel signupRoute =
       AppRouteModel(routeName: 'signupPage', path: '/signup');
-  static final AppRouteModel latestMovies =
+  static final AppRouteModel homeRoute =
       AppRouteModel(routeName: 'homePage', path: '/home');
 }

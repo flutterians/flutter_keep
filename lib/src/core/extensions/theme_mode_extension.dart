@@ -1,12 +1,5 @@
-part of 'theme_cubit.dart';
-
-@freezed
-class ThemeState with _$ThemeState {
-  const factory ThemeState.syncTheme({
-    required ThemeType themeType,
-    required ThemeData themeData,
-  }) = _SyncTheme;
-}
+import 'package:flutter/material.dart';
+import 'package:flutter_keep/src/core/core.dart';
 
 extension ThemeStateExtension on ThemeType {
   ThemeMode get getThemeMode {

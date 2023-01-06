@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
           create: (BuildContext context) => locator<ThemeCubit>(),
         ),
       ],
-      child: BlocBuilder<ThemeCubit, ThemeState>(
+      child: BlocBuilder<ThemeCubit, ThemeModel>(
         bloc: locator<ThemeCubit>(),
         builder: (context, state) {
           return MaterialApp.router(

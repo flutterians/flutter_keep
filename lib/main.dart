@@ -18,6 +18,7 @@ void main() {
 
       runApp(const MyApp());
     },
+    // ignore: only_throw_errors
     (Object e, StackTrace stackTrace) => throw e,
   );
 }

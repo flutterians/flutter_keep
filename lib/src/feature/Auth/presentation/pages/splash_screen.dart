@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20),
               child: EntranceFader(
                 child: Image.asset(AppAssets.appLogo),
               ),

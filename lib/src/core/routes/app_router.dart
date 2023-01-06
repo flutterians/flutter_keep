@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keep/src/core/core.dart';
+import 'package:flutter_keep/src/feature/Auth/auth.dart';
+import 'package:flutter_keep/src/feature/Home/home.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../feature/Auth/auth.dart';
 
 class AppRouter {
   final router = GoRouter(
@@ -17,7 +17,7 @@ class AppRouter {
           key: state.pageKey,
           child: const SplashScreen(),
         ),
-        redirect: (_, __) => RoutePaths.loginRoute.path,
+        redirect: (_, __) => RoutePaths.homeRoute.path,
       ),
       GoRoute(
         path: RoutePaths.loginRoute.path,
@@ -25,6 +25,14 @@ class AppRouter {
         pageBuilder: (context, state) => FadeTransitionPage(
           key: state.pageKey,
           child: const LoginScreen(),
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.homeRoute.path,
+        name: RoutePaths.homeRoute.routeName,
+        pageBuilder: (context, state) => FadeTransitionPage(
+          key: state.pageKey,
+          child: const HomeScreen(),
         ),
       ),
     ],
