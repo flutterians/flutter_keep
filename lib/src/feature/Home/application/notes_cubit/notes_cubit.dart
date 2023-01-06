@@ -14,6 +14,7 @@ class NotesCubit extends Cubit<NotesState> {
 
   Future<void> fetchNotes() async {
     emit(const NotesLoading());
+
     final response = await notesRepository.fetchNotes();
     response.fold(
       (success) => emit(

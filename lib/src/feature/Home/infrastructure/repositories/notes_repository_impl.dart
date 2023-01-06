@@ -10,14 +10,15 @@ class NotesRepositoryImpl implements NotesRepository {
   @override
   Future<Either<List<NoteModel>, Failure>> fetchNotes() async {
     try {
-      final response =
-          await rootBundle.loadString('assets/json/fake_notes_list.json');
-      final jsonData = await json.decode(response) as List<dynamic>;
-      return Left(
-        jsonData
-            .map((e) => NoteModel.fromJson(e as Map<String, dynamic>))
-            .toList(),
-      );
+      // final response =
+      //     await rootBundle.loadString('assets/json/fake_notes_list.json');
+      // final jsonData = await json.decode(response) as List<dynamic>;
+      // return Left(
+      //   jsonData
+      //       .map((e) => NoteModel.fromJson(e as Map<String, dynamic>))
+      //       .toList(),
+      // );
+      return const Left([]);
     } catch (e) {
       return Right(Failure.fromException(e));
     }

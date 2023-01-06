@@ -11,33 +11,36 @@ class NoteItem extends StatelessWidget {
   final NoteModel noteModel;
 
   @override
-  Widget build(BuildContext context) => Hero(
-        tag: 'NoteItem${noteModel.id}',
-        child: Container(
-          alignment: Alignment.center,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(8)),
-          ),
-          padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              if (noteModel.title.isNotEmpty) ...[
-                Text(
-                  noteModel.title,
-                  maxLines: 1,
-                ),
-                const SizedBox(height: 14),
-              ],
-              Flexible(
-                flex: 1,
-                child: Text(
-                  noteModel.description ?? '',
-                ), // wrapping using a Flexible to avoid overflow
-              ),
-            ],
-          ),
+  Widget build(BuildContext context) {
+    return Hero(
+      tag: 'NoteItem${noteModel.id}',
+      child: Container(
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: Theme.of(context).backgroundColor,
+          borderRadius: const BorderRadius.all(Radius.circular(8)),
         ),
-      );
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            if (noteModel.title.isNotEmpty) ...[
+              Text(
+                noteModel.title,
+                maxLines: 1,
+              ),
+              const SizedBox(height: 14),
+            ],
+            Flexible(
+              flex: 1,
+              child: Text(
+                noteModel.description ?? '',
+              ), // wrapping using a Flexible to avoid overflow
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }

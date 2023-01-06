@@ -10,7 +10,6 @@ class ThemeCubit extends Cubit<ThemeModel> {
           ),
         );
 
-  void getTheme() {}
   Future<void> changeTheme({required bool isDarkTheme}) async {
     switch (isDarkTheme) {
       case true:

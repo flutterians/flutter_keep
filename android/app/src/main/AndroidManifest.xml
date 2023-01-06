@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.flutter_keep">
    <application
-        android:label="flutter_keep"
+        android:label="Flutter Keep"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

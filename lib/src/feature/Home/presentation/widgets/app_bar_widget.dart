@@ -10,6 +10,7 @@ class AppBarWidget extends StatelessWidget {
       floating: true,
       snap: true,
       title: Card(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         margin: const EdgeInsets.symmetric(horizontal: 8),
         elevation: 2,
         child: Padding(
@@ -17,13 +18,18 @@ class AppBarWidget extends StatelessWidget {
           child: Row(
             children: <Widget>[
               const SizedBox(width: 10),
-              InkWell(child: const Icon(Icons.menu), onTap: () {}),
+              InkWell(
+                child: const Icon(Icons.menu),
+                onTap: () => locator<GlobalKey<ScaffoldState>>()
+                    .currentState
+                    ?.openDrawer(),
+              ),
               const SizedBox(width: 10),
-              const Expanded(
+              Expanded(
                 child: Text(
-                  'Search your notes',
+                  'Search your notes'.hardcoded,
                   softWrap: false,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 16,
                   ),
                 ),

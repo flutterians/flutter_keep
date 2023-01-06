@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keep/src/core/core.dart';
+import 'package:flutter_keep/src/feature/Home/home.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,6 +12,9 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider<ThemeCubit>(
           create: (BuildContext context) => locator<ThemeCubit>(),
+        ),
+        BlocProvider<NotesCubit>(
+          create: (BuildContext context) => locator<NotesCubit>(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeModel>(
