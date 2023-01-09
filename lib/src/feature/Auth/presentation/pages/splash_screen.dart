@@ -15,10 +15,14 @@ class SplashScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20),
               child: EntranceFader(
+                duration: const Duration(milliseconds: 300),
+                delay: const Duration(milliseconds: 100),
                 child: Image.asset(AppAssets.appLogo),
               ),
             ),
             EntranceFader(
+              duration: const Duration(milliseconds: 300),
+              delay: const Duration(milliseconds: 200),
               child: Text(
                 'Priotize your task with ease'.hardcoded,
                 style: Theme.of(context)

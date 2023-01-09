@@ -4,6 +4,8 @@ import 'package:flutter_keep/src/core/core.dart';
 class RoutePaths {
   static final AppRouteModel splashRoute =
       AppRouteModel(routeName: 'splashPage', path: '/splash');
+  static final AppRouteModel walkThroughRoute =
+      AppRouteModel(routeName: 'walkThroughPage', path: '/walkThrough');
   static final AppRouteModel loginRoute =
       AppRouteModel(routeName: 'loginPage', path: '/login');
   static final AppRouteModel signupRoute =

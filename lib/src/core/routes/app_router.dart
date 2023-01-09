@@ -17,7 +17,14 @@ class AppRouter {
           key: state.pageKey,
           child: const SplashScreen(),
         ),
-        redirect: (_, __) => RoutePaths.homeRoute.path,
+      ),
+      GoRoute(
+        path: RoutePaths.walkThroughRoute.path,
+        name: RoutePaths.walkThroughRoute.routeName,
+        pageBuilder: (context, state) => FadeTransitionPage(
+          key: state.pageKey,
+          child: const WalkThroughScreen(),
+        ),
       ),
       GoRoute(
         path: RoutePaths.loginRoute.path,
@@ -44,7 +51,10 @@ class AppRouter {
         ),
       ),
     ],
-    redirect: (BuildContext context, GoRouterState state) {
+    redirect: (BuildContext context, GoRouterState state) async {
+      if (state.subloc == RoutePaths.splashRoute.path) {
+        return RoutePaths.walkThroughRoute.path;
+      }
       return null;
     },
     debugLogDiagnostics: kDebugMode,
