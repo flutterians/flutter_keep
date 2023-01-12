@@ -17,6 +17,8 @@ class CustomButton extends StatelessWidget {
     this.padding,
     this.borderRadius,
     this.boxShadow,
+    this.leading = const SizedBox(),
+    this.trailing = const SizedBox(),
   });
 
   final String title;
@@ -31,6 +33,8 @@ class CustomButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final double? borderRadius;
   final List<BoxShadow>? boxShadow;
+  final Widget leading;
+  final Widget trailing;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +52,14 @@ class CustomButton extends StatelessWidget {
         height: height ?? 50,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          boxShadow: boxShadow,
+          boxShadow: boxShadow ??
+              [
+                const BoxShadow(
+                  blurRadius: .2,
+                  spreadRadius: .2,
+                  offset: Offset(.2, .2),
+                )
+              ],
           color: btnColor ?? Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(borderRadius ?? 4),
         ),
@@ -58,13 +69,32 @@ class CustomButton extends StatelessWidget {
                   size: 20,
                   color: Theme.of(context).coreWhite,
                 )
-            : Text(
-                title,
-                style: titleStyle ??
-                    Theme.of(context)
-                        .textTheme
-                        .subtitle1
-                        ?.copyWith(color: Theme.of(context).coreWhite),
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(left: 10),
+                    height: 30,
+                    width: 30,
+                    child: leading,
+                  ),
+                  const Spacer(),
+                  Text(
+                    title,
+                    style: titleStyle ??
+                        Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            ?.copyWith(color: Theme.of(context).coreWhite),
+                  ),
+                  const Spacer(),
+                  Container(
+                    margin: const EdgeInsets.only(right: 10),
+                    height: 30,
+                    width: 30,
+                    child: trailing,
+                  ),
+                ],
               ),
       ),
     );

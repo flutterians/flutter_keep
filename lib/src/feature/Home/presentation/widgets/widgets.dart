@@ -3,3 +3,4 @@ export 'bottom_nav_widget.dart';
 export 'drawer_widget.dart';
 export 'fab_widget.dart';
 export 'loading_grid_view.dart';
+export 'note_item.dart';

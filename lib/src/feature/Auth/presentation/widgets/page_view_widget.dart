@@ -12,6 +12,7 @@ class PageViewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     final gauss = math.exp(-(math.pow(offset.abs() - 0.5, 2) / 0.08));
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -21,9 +22,14 @@ class PageViewWidget extends StatelessWidget {
           const Spacer(),
           Transform.translate(
             offset: Offset(-32 * gauss * offset.sign, 0),
-            child: Image.asset('${pageData['asset']}', fit: BoxFit.cover),
+            child: Image.asset(
+              '${pageData['asset']}',
+              fit: BoxFit.cover,
+              height: size.height / 3,
+              width: size.width,
+            ),
           ),
-          const Spacer(),
+          const SizedBox(height: 20),
           Transform.translate(
             offset: Offset(8 * offset, 0),
             child: Text(
@@ -34,7 +40,7 @@ class PageViewWidget extends StatelessWidget {
                   ),
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 20),
           Transform.translate(
             offset: Offset(32 * offset, 0),
             child: Text(

@@ -3,6 +3,7 @@ import 'package:flutter_keep/src/core/errors/failure.dart';
 import 'package:flutter_keep/src/feature/Home/home.dart';
 
 abstract class NotesRepository {
-  Future<Either<List<NoteModel>, Failure>> fetchNotes();
-  Future<Either<List<NoteModel>, Failure>> addNote();
+  Future<Either<NoteModel, Failure>> addNote({required NoteModel noteModel});
+  Future<Either<NoteModel, Failure>> updateNote({required NoteModel noteModel});
+  Future<Either<bool, Failure>> deleteNote();
 }

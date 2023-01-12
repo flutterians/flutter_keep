@@ -17,6 +17,7 @@ class AppRouter {
           key: state.pageKey,
           child: const SplashScreen(),
         ),
+        redirect: (_, __) => RoutePaths.walkThroughRoute.path,
       ),
       GoRoute(
         path: RoutePaths.walkThroughRoute.path,
@@ -24,14 +25,6 @@ class AppRouter {
         pageBuilder: (context, state) => FadeTransitionPage(
           key: state.pageKey,
           child: const WalkThroughScreen(),
-        ),
-      ),
-      GoRoute(
-        path: RoutePaths.loginRoute.path,
-        name: RoutePaths.loginRoute.routeName,
-        pageBuilder: (context, state) => FadeTransitionPage(
-          key: state.pageKey,
-          child: const LoginScreen(),
         ),
       ),
       GoRoute(
@@ -51,11 +44,14 @@ class AppRouter {
         ),
       ),
     ],
+    // refreshListenable:
+    //     GoRouterRefreshStream(locator<FirebaseAuth>().authStateChanges()),
     redirect: (BuildContext context, GoRouterState state) async {
-      if (state.subloc == RoutePaths.splashRoute.path) {
-        return RoutePaths.walkThroughRoute.path;
-      }
       return null;
+
+      // final user = locator<FirebaseAuth>().currentUser;
+      // if (user != null) return RoutePaths.homeRoute.path;
+      // return RoutePaths.walkThroughRoute.path;
     },
     debugLogDiagnostics: kDebugMode,
   );

@@ -26,11 +26,12 @@ dependencies:
   get_it: ^7.2.0
   go_router: ^6.0.1
   google_fonts: ^3.0.1
-  google_sign_in: ^5.4.2
+  google_sign_in: ^5.4.3
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   json_annotation: ^4.7.0
   lottie: ^2.1.0
+  modal_bottom_sheet: ^2.1.2
   path_provider: ^2.0.11
   shimmer: ^2.0.0
   smooth_page_indicator: ^1.0.0+2
@@ -69,5 +70,5 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/json/
+    - assets/svg/
     - assets/animations/

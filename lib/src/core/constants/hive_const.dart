@@ -1,2 +1,3 @@
 const String notesBox = 'hNotesBox';
-const int notesBoxId = 0;
+const String notesBoxAdapter = 'NotesAdapter';
+const int notesBoxId = 1;

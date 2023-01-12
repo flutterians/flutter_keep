@@ -19,13 +19,22 @@ class NotesLoading extends NotesState {
   List<Object> get props => [];
 }
 
-class NotesLoaded extends NotesState {
-  const NotesLoaded({
-    required this.noteList,
+class NotesAdded extends NotesState {
+  const NotesAdded({
+    required this.noteModel,
   });
-  final List<NoteModel> noteList;
+  final NoteModel noteModel;
   @override
-  List<Object> get props => [noteList];
+  List<Object> get props => [noteModel];
+}
+
+class NotesUpdated extends NotesState {
+  const NotesUpdated({
+    required this.noteModel,
+  });
+  final NoteModel noteModel;
+  @override
+  List<Object> get props => [noteModel];
 }
 
 class NotesError extends NotesState {

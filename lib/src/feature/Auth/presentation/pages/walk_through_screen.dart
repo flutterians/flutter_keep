@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_keep/src/core/core.dart';
 import 'package:flutter_keep/src/feature/Auth/auth.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class WalkThroughScreen extends StatefulWidget {
@@ -60,12 +61,6 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                 },
               ),
             ),
-            CustomButton(
-              title: 'Login',
-              margin: const EdgeInsets.symmetric(horizontal: 20),
-              onTap: () {},
-            ),
-            const SizedBox(height: 30),
             SmoothPageIndicator(
               controller: _controller, // PageController
               count: pageViewItems.length,
@@ -77,6 +72,14 @@ class _WalkThroughScreenState extends State<WalkThroughScreen> {
                 dotHeight: 10,
                 dotWidth: 10,
               ), // your preferred effect
+            ),
+            const SizedBox(height: 30),
+            CustomButton(
+              borderRadius: 15,
+              leading: SvgPicture.asset(AppAssets.googleLogo),
+              title: 'Continue with Google '.hardcoded,
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              onTap: () {},
             ),
             const SizedBox(height: 30),
           ],

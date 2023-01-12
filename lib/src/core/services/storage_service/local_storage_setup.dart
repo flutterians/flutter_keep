@@ -1,8 +1,9 @@
+import 'package:flutter_keep/src/feature/Home/home.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as path_provider;
 
-class HiveSetup {
-  HiveSetup._();
+class LocalStorageSetup {
+  LocalStorageSetup._();
 
   static Future<void> get initHive => _initHive();
 
@@ -10,6 +11,10 @@ class HiveSetup {
     final appDocumentDir =
         await path_provider.getApplicationDocumentsDirectory();
 
-    Hive.init(appDocumentDir.path);
+    Hive
+      ..init(appDocumentDir.path)
+      ..registerAdapter<NoteModel>(
+        NotesAdapter(),
+      );
   }
 }

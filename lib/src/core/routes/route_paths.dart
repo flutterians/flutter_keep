@@ -6,10 +6,6 @@ class RoutePaths {
       AppRouteModel(routeName: 'splashPage', path: '/splash');
   static final AppRouteModel walkThroughRoute =
       AppRouteModel(routeName: 'walkThroughPage', path: '/walkThrough');
-  static final AppRouteModel loginRoute =
-      AppRouteModel(routeName: 'loginPage', path: '/login');
-  static final AppRouteModel signupRoute =
-      AppRouteModel(routeName: 'signupPage', path: '/signup');
   static final AppRouteModel homeRoute =
       AppRouteModel(routeName: 'homePage', path: '/home');
   static final AppRouteModel addNoteRoute =
