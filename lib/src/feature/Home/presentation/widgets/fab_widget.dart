@@ -14,7 +14,7 @@ class FabWidget extends StatelessWidget {
         Icons.add,
         size: 30,
       ),
-      onPressed: () => context.push(RoutePaths.addNoteRoute.path),
+      onPressed: () => context.push(AppRoutes.addNoteRoute.path),
     );
   }
 }

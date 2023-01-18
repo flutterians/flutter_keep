@@ -57,7 +57,7 @@ class AuthRepositoryImpl implements AuthRepository {
       await _googleSignIn.signOut();
       await firebaseAuth.signOut();
 
-      return Right(Failure("Couldn't logout", FailureType.exception));
+      return const Left(true);
     } catch (e) {
       return Right(Failure.fromException(e));
     }

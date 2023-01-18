@@ -19,7 +19,9 @@ class PageViewWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
+          const Spacer(
+            flex: 3,
+          ),
           Transform.translate(
             offset: Offset(-32 * gauss * offset.sign, 0),
             child: Image.asset(
@@ -51,7 +53,9 @@ class PageViewWidget extends StatelessWidget {
                   ),
             ),
           ),
-          const Spacer(),
+          const Spacer(
+            flex: 2,
+          ),
         ],
       ),
     );

@@ -8,13 +8,31 @@ class AuthCubit extends Cubit<BaseState<dynamic>> {
         super(const BaseState.initial());
   final AuthRepository _authRepository;
 
-  /// [loginWithSocialAuth] login user with google account
-  Future<void> loginWithSocialAuth() async {
+  /// [loginWithGoogle] login user with google account
+  Future<void> loginWithGoogle() async {
     emit(const BaseState<void>.loading());
+
     final response = await _authRepository.loginWithGoogle();
-    response.fold(
-      (success) => emit(BaseState<UserModel>.success(data: success)),
-      (error) => emit(BaseState.error(error)),
+
+    emit(
+      response.fold(
+        (success) => BaseState<UserModel>.success(data: success),
+        BaseState.error,
+      ),
+    );
+  }
+
+  /// [logout] logout user
+  Future<void> logout() async {
+    emit(const BaseState<void>.loading());
+
+    final response = await _authRepository.logout();
+
+    emit(
+      response.fold(
+        (success) => const BaseState<void>.success(),
+        BaseState.error,
+      ),
     );
   }
 }

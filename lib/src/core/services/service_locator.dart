@@ -9,9 +9,6 @@ GetIt locator = GetIt.instance;
 
 Future<void> setupLocator() async {
   locator
-    ..registerLazySingleton<GlobalKey<NavigatorState>>(
-      GlobalKey<NavigatorState>.new,
-    )
     ..registerLazySingleton<GlobalKey<ScaffoldState>>(
       GlobalKey<ScaffoldState>.new,
     )
@@ -26,6 +23,9 @@ Future<void> setupLocator() async {
     )
     ..registerLazySingleton<FirebaseAuth>(
       () => FirebaseAuth.instance,
+    )
+    ..registerLazySingleton<TabIndexCubit>(
+      TabIndexCubit.new,
     )
     ..registerLazySingleton<NotesRepository>(
       () => NotesRepositoryImpl(

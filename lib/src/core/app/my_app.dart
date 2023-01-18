@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keep/src/core/core.dart';
+import 'package:flutter_keep/src/feature/Auth/auth.dart';
 import 'package:flutter_keep/src/feature/Home/home.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,8 +14,14 @@ class MyApp extends StatelessWidget {
         BlocProvider<ThemeCubit>(
           create: (BuildContext context) => locator<ThemeCubit>(),
         ),
+        BlocProvider<TabIndexCubit>(
+          create: (BuildContext context) => locator<TabIndexCubit>(),
+        ),
         BlocProvider<NotesCubit>(
           create: (BuildContext context) => locator<NotesCubit>(),
+        ),
+        BlocProvider<AuthCubit>(
+          create: (BuildContext context) => locator<AuthCubit>(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeModel>(

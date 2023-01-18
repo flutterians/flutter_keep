@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_keep/src/core/core.dart';
+import 'package:flutter_keep/src/feature/Auth/auth.dart';
 import 'package:flutter_vector_icons/flutter_vector_icons.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -47,7 +48,7 @@ class DrawerWidget extends StatelessWidget {
             builder: (context, state) {
               return ListTile(
                 focusColor: Theme.of(context).coreTransparent,
-                title: Text('Change Theme'.hardcoded),
+                title: Text('Change theme'.hardcoded),
                 leading: state.themeType.isDarkTheme
                     ? const Icon(Feather.moon)
                     : const Icon(Feather.sun),
@@ -60,6 +61,23 @@ class DrawerWidget extends StatelessWidget {
                 ),
               );
             },
+          ),
+          Divider(
+            color: Theme.of(context).coreWhite,
+          ),
+          BlocBuilder<AuthCubit, BaseState<dynamic>>(
+            builder: (context, state) {
+              return ListTile(
+                onTap: () => locator<AuthCubit>().logout(),
+                focusColor: Theme.of(context).coreTransparent,
+                title: Text('Log out'.hardcoded),
+                leading: const Icon(Feather.lock),
+                trailing: const Icon(Feather.chevron_right),
+              );
+            },
+          ),
+          Divider(
+            color: Theme.of(context).coreWhite,
           ),
         ],
       ),

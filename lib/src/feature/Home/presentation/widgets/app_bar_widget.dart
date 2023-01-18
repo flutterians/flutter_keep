@@ -11,7 +11,6 @@ class AppBarWidget extends StatelessWidget {
       snap: true,
       title: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        margin: const EdgeInsets.symmetric(horizontal: 8),
         elevation: 2,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10),
@@ -33,10 +32,6 @@ class AppBarWidget extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
-              ),
-              InkWell(
-                child: const Icon(Icons.grid_view_outlined),
-                onTap: () {},
               ),
               const SizedBox(width: 6),
               const CircleAvatar(

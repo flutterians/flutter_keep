@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_keep/src/core/core.dart';
@@ -6,52 +9,77 @@ import 'package:flutter_keep/src/feature/Home/home.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
+  static final GlobalKey<NavigatorState> _rootNavigator =
+      GlobalKey(debugLabel: 'root');
+  static final GlobalKey<NavigatorState> _shellNavigator =
+      GlobalKey(debugLabel: 'shell');
   final router = GoRouter(
-    initialLocation: RoutePaths.splashRoute.path,
-    navigatorKey: locator<GlobalKey<NavigatorState>>(),
+    initialLocation: AppRoutes.splashRoute.path,
+    navigatorKey: _rootNavigator,
     routes: [
       GoRoute(
-        path: RoutePaths.splashRoute.path,
-        name: RoutePaths.splashRoute.routeName,
+        path: AppRoutes.splashRoute.path,
+        name: AppRoutes.splashRoute.routeName,
         pageBuilder: (context, state) => FadeTransitionPage(
           key: state.pageKey,
           child: const SplashScreen(),
         ),
-        redirect: (_, __) => RoutePaths.walkThroughRoute.path,
       ),
       GoRoute(
-        path: RoutePaths.walkThroughRoute.path,
-        name: RoutePaths.walkThroughRoute.routeName,
+        path: AppRoutes.walkThroughRoute.path,
+        name: AppRoutes.walkThroughRoute.routeName,
         pageBuilder: (context, state) => FadeTransitionPage(
           key: state.pageKey,
           child: const WalkThroughScreen(),
         ),
       ),
-      GoRoute(
-        path: RoutePaths.homeRoute.path,
-        name: RoutePaths.homeRoute.routeName,
-        pageBuilder: (context, state) => FadeTransitionPage(
-          key: state.pageKey,
-          child: const HomeScreen(),
-        ),
-      ),
-      GoRoute(
-        path: RoutePaths.addNoteRoute.path,
-        name: RoutePaths.addNoteRoute.routeName,
-        pageBuilder: (context, state) => FadeTransitionPage(
-          key: state.pageKey,
-          child: const AddNoteScreen(),
-        ),
+      ShellRoute(
+        navigatorKey: _shellNavigator,
+        builder: (context, state, child) =>
+            BottomNavScreen(key: state.pageKey, child: child),
+        routes: [
+          GoRoute(
+            path: AppRoutes.homeRoute.path,
+            name: AppRoutes.homeRoute.routeName,
+            pageBuilder: (context, state) => NoTransitionPage(
+              // key: state.pageKey,
+              child: HomeScreen(key: state.pageKey),
+            ),
+          ),
+          GoRoute(
+            path: AppRoutes.addNoteRoute.path,
+            name: AppRoutes.addNoteRoute.routeName,
+            pageBuilder: (context, state) => NoTransitionPage(
+              // key: state.pageKey,
+              child: AddNoteScreen(
+                key: state.pageKey,
+              ),
+            ),
+          ),
+          GoRoute(
+            path: AppRoutes.settingRoute.path,
+            name: AppRoutes.settingRoute.routeName,
+            pageBuilder: (context, state) => NoTransitionPage(
+              // key: state.pageKey,
+              child: SettingScreen(
+                key: state.pageKey,
+              ),
+            ),
+          ),
+        ],
       ),
     ],
-    // refreshListenable:
-    //     GoRouterRefreshStream(locator<FirebaseAuth>().authStateChanges()),
+    refreshListenable:
+        GoRouterRefreshStream(locator<FirebaseAuth>().authStateChanges()),
     redirect: (BuildContext context, GoRouterState state) async {
-      return null;
-
       // final user = locator<FirebaseAuth>().currentUser;
-      // if (user != null) return RoutePaths.homeRoute.path;
-      // return RoutePaths.walkThroughRoute.path;
+      // if (state.subloc == AppRoutes.splashRoute.path) {
+      //   if (user != null) {
+      return AppRoutes.homeRoute.path;
+      // }
+      // return AppRoutes.walkThroughRoute.path;
+      // },
+      // return null;
     },
     debugLogDiagnostics: kDebugMode,
   );
@@ -67,4 +95,21 @@ class FadeTransitionPage extends CustomTransitionPage<void> {
             child: child,
           ),
         );
+}
+
+class GoRouterRefreshStream extends ChangeNotifier {
+  GoRouterRefreshStream(Stream<dynamic> stream) {
+    notifyListeners();
+    _subscription = stream.asBroadcastStream().listen(
+          (dynamic _) => notifyListeners(),
+        );
+  }
+
+  late final StreamSubscription<dynamic> _subscription;
+
+  @override
+  void dispose() {
+    _subscription.cancel();
+    super.dispose();
+  }
 }
