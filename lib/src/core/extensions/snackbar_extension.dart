@@ -31,7 +31,7 @@ extension SnackbarExtension on BuildContext {
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(this)
                     .textTheme
-                    .bodyText2
+                    .bodyMedium
                     ?.copyWith(color: Theme.of(this).coreBlack),
               ),
             ),

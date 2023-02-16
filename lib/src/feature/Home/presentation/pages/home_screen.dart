@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                       'No notes added yet'.hardcoded,
                       style: Theme.of(context)
                           .textTheme
-                          .subtitle1
+                          .titleMedium
                           ?.copyWith(fontWeight: FontWeight.w600),
                     ),
                   ],

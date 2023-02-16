@@ -21,7 +21,7 @@ class NotFoundScreen extends StatelessWidget {
               children: [
                 Text(
                   '404 - Page not found!'.hardcoded,
-                  style: Theme.of(context).textTheme.headline4,
+                  style: Theme.of(context).textTheme.headlineMedium,
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 32),

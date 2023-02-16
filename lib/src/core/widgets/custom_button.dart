@@ -84,7 +84,7 @@ class CustomButton extends StatelessWidget {
                     style: titleStyle ??
                         Theme.of(context)
                             .textTheme
-                            .subtitle1
+                            .titleMedium
                             ?.copyWith(color: Theme.of(context).coreWhite),
                   ),
                   const Spacer(),

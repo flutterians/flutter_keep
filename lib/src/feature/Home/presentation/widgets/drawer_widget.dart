@@ -26,14 +26,14 @@ class DrawerWidget extends StatelessWidget {
                     text: 'Flutter',
                     style: Theme.of(context)
                         .textTheme
-                        .headline5
+                        .headlineSmall
                         ?.copyWith(fontWeight: FontWeight.w600),
                   ),
                   TextSpan(
                     text: ' Keep',
                     style: Theme.of(context)
                         .textTheme
-                        .headline5
+                        .headlineSmall
                         ?.copyWith(fontWeight: FontWeight.w500),
                   ),
                 ],

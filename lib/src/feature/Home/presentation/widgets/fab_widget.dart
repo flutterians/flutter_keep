@@ -9,7 +9,7 @@ class FabWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       shape: const CircleBorder(),
-      backgroundColor: Theme.of(context).backgroundColor,
+      backgroundColor: Theme.of(context).colorScheme.background,
       child: const Icon(
         Icons.add,
         size: 30,

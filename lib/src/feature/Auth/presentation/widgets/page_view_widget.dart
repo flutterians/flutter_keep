@@ -37,7 +37,7 @@ class PageViewWidget extends StatelessWidget {
             child: Text(
               '${pageData['title']}',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.headline6?.copyWith(
+              style: Theme.of(context).textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
             ),
@@ -48,7 +48,7 @@ class PageViewWidget extends StatelessWidget {
             child: Text(
               '${pageData['content']}',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyText2?.copyWith(
+              style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
             ),

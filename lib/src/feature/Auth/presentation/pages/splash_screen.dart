@@ -27,7 +27,7 @@ class SplashScreen extends StatelessWidget {
                 'Priotize your task with ease'.hardcoded,
                 style: Theme.of(context)
                     .textTheme
-                    .headline4
+                    .headlineMedium
                     ?.copyWith(fontWeight: FontWeight.w600),
               ),
             )
